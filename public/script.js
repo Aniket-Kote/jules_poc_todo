@@ -3,7 +3,7 @@ async function loadTodos() {
     const todos = await res.json();
     const list = document.getElementById('todoList');
     list.innerHTML = todos.map(todo =>
-        `<li>${todo.text} <small>ID: ${todo.id}</small></li>`
+        `<li>${todo.text} <small>ID: ${todo.id}</small> <button onclick="deleteTodo(${todo.id})">Delete</button></li>`
     ).join('');
 }
 
@@ -19,3 +19,10 @@ async function addTodo() {
 }
 
 loadTodos();
+
+async function deleteTodo(id) {
+    await fetch(`/api/todos/${id}`, {
+        method: 'DELETE',
+    });
+    loadTodos();
+}
