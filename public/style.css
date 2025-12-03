@@ -2,6 +2,7 @@ body {
     font-family: Arial;
     max-width: 600px;
     margin: 50px auto;
+    background-color: black;
 }
 
 .container {
