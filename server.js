@@ -32,6 +32,13 @@ app.post('/api/todos', (req, res) => {
     res.json(todo);
 });
 
+app.delete('/api/todos/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    todos = todos.filter(t => t.id !== id);
+    fs.writeFileSync('todos.json', JSON.stringify(todos, null, 2));
+    res.status(204).send();
+});
+
 app.listen(port, () => {
     console.log(`Todo app running at http://localhost:${port}`);
 });
