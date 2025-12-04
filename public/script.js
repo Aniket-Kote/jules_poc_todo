@@ -5,7 +5,13 @@ async function loadTodos() {
     list.innerHTML = todos.map(todo => {
         const status = todo.completed ? 'Completed' : 'Active';
         const buttonText = todo.completed ? 'Activate' : 'Complete';
-        return `<li class="${status.toLowerCase()}">${todo.text} <small>ID: ${todo.id}</small> - <i>${status}</i> <button onclick="toggleStatus(${todo.id})">${buttonText}</button> <button onclick="deleteTodo(${todo.id})">Delete</button></li>`;
+        return `<li class="${status.toLowerCase()}">
+                    <span>${todo.text}</span>
+                    <div>
+                        <button onclick="toggleStatus(${todo.id})">${buttonText}</button>
+                        <button onclick="deleteTodo(${todo.id})">Delete</button>
+                    </div>
+                </li>`;
     }).join('');
 }
 

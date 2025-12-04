@@ -3,14 +3,17 @@
 
 <head>
     <title>Jules Demo Todo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Todo List (Demo for Jules)</h1>
-        <input type="text" id="todoInput" placeholder="Add task...">
-        <button onclick="addTodo()">Add</button>
+        <h1>Todo List</h1>
+        <div class="input-group">
+            <input type="text" id="todoInput" placeholder="Add a new task...">
+            <button onclick="addTodo()">Add Task</button>
+        </div>
         <ul id="todoList"></ul>
     </div>
     <script src="script.js"></script>
