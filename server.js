@@ -39,6 +39,18 @@ app.delete('/api/todos/:id', (req, res) => {
     res.status(204).send();
 });
 
+app.put('/api/todos/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const todo = todos.find(t => t.id === id);
+    if (todo) {
+        todo.completed = !todo.completed;
+        fs.writeFileSync('todos.json', JSON.stringify(todos, null, 2));
+        res.json(todo);
+    } else {
+        res.status(404).send();
+    }
+});
+
 app.listen(port, () => {
     console.log(`Todo app running at http://localhost:${port}`);
 });
